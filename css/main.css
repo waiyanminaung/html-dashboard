@@ -1,0 +1,238 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+:root {
+  /* rgb colors */
+  --rgb-body: 250, 250, 250;
+  --rgb-text-black: 17, 24, 39;
+  --rgb-text-body: 75, 85, 99;
+  --rgb-text-light: 235, 236, 239;
+
+  /* colors */
+  --body: rgb(var(--rgb-body));
+  --text-black: rgb(var(--rgb-text-black));
+  --text-body: rgb(var(--rgb-text-body));
+  --text-light: rgb(var(--rgb-text-light));
+
+  /* font */
+  --fs-sm: 0.875rem;
+  --fs-base: 1rem;
+  --fs-md: 1.125rem;
+  --fs-lg: 1.25rem;
+  --fs-xl: 1.5rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+body {
+  margin: 0;
+  background: var(--body);
+  color: var(--text-body);
+  min-height: 100vh;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+}
+
+button {
+  font-weight: 500;
+  line-height: 1.5rem;
+  background-color: white;
+  border: 1px solid var(--text-light);
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+#app {
+  min-height: 100%;
+}
+
+#loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  display: none;
+}
+
+/* Common */
+.card {
+  background: white;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  padding: 24px;
+  border-radius: 14px;
+}
+
+.card__header {
+  margin-bottom: 1rem;
+}
+
+.card__title {
+  font-size: var(--fs-base);
+  color: var(--text-black);
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: white;
+  padding: 1rem;
+  border-bottom: 1px solid var(--text-light);
+}
+
+.header__menu-btn {
+  background: rgba(var(--rgb-text-light), 0.5);
+  font-size: var(--fs-md);
+  cursor: pointer;
+  padding: 6px 8px;
+  border: 0px;
+}
+
+.header__title {
+  color: var(--text-black);
+  font-size: var(--fs-lg);
+  font-weight: 600;
+}
+
+/* Content */
+.content {
+  padding: 18px;
+  overflow: auto;
+  height: calc(100vh - 107px);
+}
+
+.content > *:not(:last-child) {
+  margin-bottom: 18px;
+}
+
+/* Kpis */
+.kpis-section {
+  margin: -18px -18px 18px;
+  padding: 30px 18px;
+  background-image: url("../assets/bg.jpeg");
+  background-size: cover;
+  background-position: center;
+}
+
+.kpis-section__header {
+  margin-bottom: 1rem;
+}
+
+.kpis-section__title {
+  font-size: var(--fs-xl);
+  color: var(--text-black);
+  margin-bottom: 0.25rem;
+}
+
+.kpis-cards {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+}
+
+.kpis-cards__card {
+  background: white;
+  padding: 24px;
+  border-radius: 8px;
+}
+
+.kpis-cards__card-title {
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--text-body);
+  margin-bottom: 1rem;
+}
+
+.kpis-cards__card-value {
+  font-size: var(--fs-xl);
+  font-weight: 700;
+  margin: 0;
+  color: var(--text-black);
+}
+
+@media screen and (max-width: 768px) {
+  .kpis-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+}
+
+/*  table  */
+.table-container {
+  background: white;
+  overflow: auto;
+}
+
+.table {
+  width: 100%;
+  min-width: 420px;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-family: inherit;
+  font-size: var(--fs-sm);
+  background: transparent;
+}
+
+.table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: linear-gradient(
+    180deg,
+    rgba(var(--rgb-body), 1),
+    rgba(var(--rgb-body), 0.98)
+  );
+  color: var(--text-body);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  text-align: left;
+  text-transform: capitalize;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--text-light);
+  letter-spacing: 0.02em;
+}
+
+.table tbody td {
+  padding: 12px 16px;
+  color: var(--text-black);
+  background: transparent;
+  vertical-align: middle;
+  transition: background-color 0.15s ease;
+  white-space: nowrap;
+}
+
+.table tbody tr:not(:last-child) td {
+  border-bottom: 1px solid rgba(var(--rgb-text-light), 1);
+}
+
+.table tbody tr:hover td,
+.table tbody tr:focus-within td {
+  background: var(--body);
+}
+
+/* Footer */
+footer {
+  background-color: white;
+  padding: 1rem;
+  border-top: 1px solid var(--text-light);
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  footer {
+    font-size: var(--fs-sm);
+  }
+}

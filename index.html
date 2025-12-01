@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+
+    <script
+      src="https://kit.fontawesome.com/9662360660.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div id="app">
+      <!-- Loading -->
+      <div id="loading">
+        <img
+          src="/assets/loading.svg"
+          alt="Loading..."
+          width="50"
+          height="50"
+        />
+      </div>
+
+      <header class="header">
+        <h1 class="header__title">Dashboard</h1>
+      </header>
+
+      <main class="content">
+        <!-- KPIs Section -->
+        <section class="kpis-section">
+          <div class="kpis-cards">
+            <div class="kpis-cards__card">
+              <div class="kpis-cards__card-title">Total Tickets</div>
+              <div class="kpis-cards__card-value" id="kpi-total-tickets">-</div>
+            </div>
+
+            <div class="kpis-cards__card">
+              <div class="kpis-cards__card-title">Open Tickets</div>
+              <div class="kpis-cards__card-value" id="kpi-open-tickets">-</div>
+            </div>
+
+            <div class="kpis-cards__card">
+              <div class="kpis-cards__card-title">Avg Resolution Time</div>
+              <div class="kpis-cards__card-value" id="kpi-avg-resolution-time">
+                -
+              </div>
+            </div>
+
+            <div class="kpis-cards__card">
+              <div class="kpis-cards__card-title">Mttr Hours</div>
+              <div class="kpis-cards__card-value" id="kpi-mttr-hours">-</div>
+            </div>
+
+            <div class="kpis-cards__card">
+              <div class="kpis-cards__card-title">Uptime Percent</div>
+              <div class="kpis-cards__card-value" id="kpi-uptime-percent">
+                -
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Table -->
+        <div class="card">
+          <div class="card__header">
+            <h2 class="card__title">Recent Tickets</h2>
+          </div>
+          <div class="card__body">
+            <div id="recentTicketsTable" class="table-container">
+              <table class="table">
+                <colgroup>
+                  <col style="width: 70%" />
+                  <col style="width: 30%" />
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th>department</th>
+                    <th>Total</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fuel Metrics -->
+        <div class="card">
+          <div class="card__header">
+            <h2 class="card__title">Fuel Consumption</h2>
+          </div>
+          <div class="card__body">
+            <div id="fuelMetrics"></div>
+          </div>
+        </div>
+
+        <!-- MTTR History -->
+        <div class="card">
+          <div class="card__header">
+            <h2 class="card__title">MTTR History</h2>
+          </div>
+          <div class="card__body">
+            <div style="height: 250px">
+              <canvas id="mmtrHistoryChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- Footer -->
+      <footer>
+        <small>© 2025 HTML Dashboard — Developed by Wai Yan Min Aung</small>
+      </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module" src="/js/main.js"></script>
+  </body>
+</html>
